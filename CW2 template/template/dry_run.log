@@ -1,0 +1,288 @@
+
+[1/9] ./mvnw clean package && docker build
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< de.campusshop:dispatch-manifest-hub >-----------------
+[INFO] Building dispatch-manifest-hub cw2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.0:clean (default-clean) @ dispatch-manifest-hub ---
+[INFO] Deleting C:\Users\USER\Documents\School\LP\kiarash_khayyat_assignment2\CW2 template\template\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ dispatch-manifest-hub ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ dispatch-manifest-hub ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 40 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ dispatch-manifest-hub ---
+[INFO] skip non existing resourceDirectory C:\Users\USER\Documents\School\LP\kiarash_khayyat_assignment2\CW2 template\template\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ dispatch-manifest-hub ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ dispatch-manifest-hub ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running de.campusshop.dispatch.client.SimulationTariffClientTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 s -- in de.campusshop.dispatch.client.SimulationTariffClientTest
+[INFO] Running de.campusshop.dispatch.controller.ShipmentApiIntegrationTest
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+11:02:29.742 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [de.campusshop.dispatch.controller.ShipmentApiIntegrationTest]: ShipmentApiIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:02:30.017 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration de.campusshop.dispatch.DispatchApplication for test class de.campusshop.dispatch.controller.ShipmentApiIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.1)
+
+2026-11-23T11:02:30.768Z  INFO 24036 --- [dispatch-manifest-hub] [           main] d.c.d.c.ShipmentApiIntegrationTest       : Starting ShipmentApiIntegrationTest using Java 23.0.1 with PID 24036 (started by USER in C:\Users\USER\Documents\School\LP\kiarash_khayyat_assignment2\CW2 template\template)
+2026-11-23T11:02:30.770Z  INFO 24036 --- [dispatch-manifest-hub] [           main] d.c.d.c.ShipmentApiIntegrationTest       : The following 1 profile is active: "inmemory"
+2026-11-23T11:02:33.272Z  INFO 24036 --- [dispatch-manifest-hub] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-23T11:02:33.272Z  INFO 24036 --- [dispatch-manifest-hub] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-23T11:02:33.284Z  INFO 24036 --- [dispatch-manifest-hub] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-11-23T11:02:33.297Z  INFO 24036 --- [dispatch-manifest-hub] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 23 ms
+2026-11-23T11:02:33.373Z  INFO 24036 --- [dispatch-manifest-hub] [           main] d.c.d.c.ShipmentApiIntegrationTest       : Started ShipmentApiIntegrationTest in 3.146 seconds (process running for 4.789)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-11-23T11:02:34.762Z  INFO 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Registered shipment e52899e2-2752-4b35-991d-e9719d2eed11 manifestNo=11111111-1111-4111-8111-111111111111 parcels=2 totalCharge=16.99
+2026-11-23T11:02:34.845Z  INFO 24036 --- [dispatch-manifest-hub] [           main] d.c.d.service.ShipmentQueryService       : Deleted shipment e52899e2-2752-4b35-991d-e9719d2eed11 and its archived manifest manifests/carrier-integration-register/e52899e2-2752-4b35-991d-e9719d2eed11.json
+2026-11-23T11:02:34.859Z  INFO 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Registered shipment c27901fb-2f93-4eb6-93e2-0ee85db1c3ac manifestNo=22222222-2222-4222-8222-222222222222 parcels=1 totalCharge=6.27
+2026-11-23T11:02:34.862Z  WARN 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Duplicate manifest rejected manifestNo=22222222-2222-4222-8222-222222222222
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.411 s -- in de.campusshop.dispatch.controller.ShipmentApiIntegrationTest
+[INFO] Running de.campusshop.dispatch.service.ShipmentRegistrationServiceTest
+2026-11-23T11:02:35.187Z  WARN 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Duplicate manifest rejected manifestNo=4b1d2c3e-5f60-4a71-8b92-a3b4c5d6e7f8
+2026-11-23T11:02:35.216Z  WARN 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Parcel is UNRATED parcelNo=1 tariffCode=TRF-1
+2026-11-23T11:02:35.217Z ERROR 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Indexing shipment 2197b18f-34c7-486f-bb6a-4788dacbe7fb failed � removing archived manifest manifests/9c8b7a65-4d3e-4f21-9a0b-1c2d3e4f5a6b/2197b18f-34c7-486f-bb6a-4788dacbe7fb.json
+
+java.lang.IllegalStateException: DynamoDB unavailable
+	at de.campusshop.dispatch.service.ShipmentRegistrationService.register(ShipmentRegistrationService.java:109) ~[classes/:na]
+	at de.campusshop.dispatch.service.ShipmentRegistrationServiceTest.lambda$failedIndexWriteRemovesTheArchivedManifest$1(ShipmentRegistrationServiceTest.java:179) ~[test-classes/:na]
+	at org.assertj.core.api.ThrowableAssert.catchThrowable(ThrowableAssert.java:63) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.AssertionsForClassTypes.catchThrowable(AssertionsForClassTypes.java:904) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.catchThrowable(Assertions.java:1470) ~[assertj-core-3.26.3.jar:na]
+	at org.assertj.core.api.Assertions.assertThatThrownBy(Assertions.java:1313) ~[assertj-core-3.26.3.jar:na]
+	at de.campusshop.dispatch.service.ShipmentRegistrationServiceTest.failedIndexWriteRemovesTheArchivedManifest(ShipmentRegistrationServiceTest.java:179) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:767) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$8(TestMethodTestDescriptor.java:217) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.2.jar:3.5.2]
+
+2026-11-23T11:02:35.234Z  WARN 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Parcel is UNRATED parcelNo=2 tariffCode=TRF-999
+2026-11-23T11:02:35.234Z  INFO 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Registered shipment f9e6c035-0272-4390-b49b-28b00920dd59 manifestNo=4b1d2c3e-5f60-4a71-8b92-a3b4c5d6e7f8 parcels=2 totalCharge=8.25
+2026-11-23T11:02:35.243Z  INFO 24036 --- [dispatch-manifest-hub] [           main] d.c.d.s.ShipmentRegistrationService      : Registered shipment caf9fb4d-8f33-4afb-bae1-c04cc8bb6a08 manifestNo=4b1d2c3e-5f60-4a71-8b92-a3b4c5d6e7f8 parcels=2 totalCharge=12.07
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.346 s -- in de.campusshop.dispatch.service.ShipmentRegistrationServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ dispatch-manifest-hub ---
+[INFO] Building jar: C:\Users\USER\Documents\School\LP\kiarash_khayyat_assignment2\CW2 template\template\target\dispatch-manifest-hub-cw2.jar
+[INFO] 
+[INFO] --- spring-boot:3.4.1:repackage (repackage) @ dispatch-manifest-hub ---
+[INFO] Replacing main artifact C:\Users\USER\Documents\School\LP\kiarash_khayyat_assignment2\CW2 template\template\target\dispatch-manifest-hub-cw2.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\USER\Documents\School\LP\kiarash_khayyat_assignment2\CW2 template\template\target\dispatch-manifest-hub-cw2.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.584 s
+[INFO] Finished at: 2026-11-23T11:02:36Z
+[INFO] ------------------------------------------------------------------------
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 543B 0.0s done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 1.0s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:572cebbc2b15e6f84c077742952674889cb63cd5e9b80abdffcbe587b6f19183
+#3 resolve docker.io/docker/dockerfile:1@sha256:572cebbc2b15e6f84c077742952674889cb63cd5e9b80abdffcbe587b6f19183 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#4 ...
+
+#5 [internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#5 DONE 0.6s
+
+#4 [internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#4 DONE 0.6s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 73B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 DONE 0.0s
+
+#8 [build 1/6] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#8 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.1s done
+#8 DONE 0.1s
+
+#9 [stage-1 1/3] FROM docker.io/library/eclipse-temurin:21-jre@sha256:d77e090ae1f6970c047b443c6f0a6c1358b0426d44432bb5a7753408cd43de0d
+#9 resolve docker.io/library/eclipse-temurin:21-jre@sha256:d77e090ae1f6970c047b443c6f0a6c1358b0426d44432bb5a7753408cd43de0d
+#9 resolve docker.io/library/eclipse-temurin:21-jre@sha256:d77e090ae1f6970c047b443c6f0a6c1358b0426d44432bb5a7753408cd43de0d 0.1s done
+#9 DONE 0.1s
+
+#7 [internal] load build context
+#7 transferring context: 5.05kB 0.0s done
+#7 DONE 0.0s
+
+#10 [build 2/6] WORKDIR /app
+#10 CACHED
+
+#11 [build 3/6] COPY pom.xml .
+#11 CACHED
+
+#12 [stage-1 2/3] WORKDIR /app
+#12 CACHED
+
+#13 [build 4/6] RUN mvn -q -B -DskipTests dependency:go-offline
+#13 CACHED
+
+#14 [build 5/6] COPY src ./src
+#14 CACHED
+
+#15 [build 6/6] RUN mvn -q -B -DskipTests clean package
+#15 CACHED
+
+#16 [stage-1 3/3] COPY --from=build /app/target/*.jar app.jar
+#16 CACHED
+
+#17 exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:4f7a8241a2bfc7308111837875585d160b4b3adb804d7dd1982684ae825ed400 done
+#17 exporting config sha256:cfe9dc3c297895f56e4e4ee4d8d8d6f30f050618fbcbe5568d7e281e9f23a314 done
+#17 exporting attestation manifest sha256:a23f379317fa31852439faf7722b516f570ae0a0dcb3ed09951c54e2173ed7be 0.0s done
+#17 exporting manifest list sha256:dc1de69ed7c540c36b55858de06796865c6e4048a6c64d58550ea0893ed26704 0.0s done
+#17 naming to docker.io/library/ilp:cw2
+#17 naming to docker.io/library/ilp:cw2 done
+#17 unpacking to docker.io/library/ilp:cw2 0.0s done
+#17 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/40shf234xgli5a5q7h1hhjgly
+  OK    image ilp:cw2 built
+
+[2/9] docker save (the tar that goes into your submission zip)
+  OK    ilp_submission_image.tar written (152M)
+
+[3/9] docker rmi + docker load (the marker only ever sees the tar)
+  OK    image restored from the tar alone
+
+[4/9] docker compose up localstack + aws-init + tariff-service (marking mode)
+ Network template_default Creating 
+ Network template_default Creating 
+ Network template_default Created 
+ Network template_default Created 
+ Container template-tariff-service-1 Creating 
+ Container template-localstack-1 Creating 
+ Container template-tariff-service-1 Created 
+ Container template-localstack-1 Created 
+ Container template-aws-init-1 Creating 
+ Container template-aws-init-1 Created 
+ Container template-tariff-service-1 Starting 
+ Container template-localstack-1 Starting 
+ Container template-tariff-service-1 Started 
+ Container template-localstack-1 Started 
+ Container template-localstack-1 Waiting 
+ Container template-localstack-1 Healthy 
+ Container template-aws-init-1 Starting 
+ Container template-aws-init-1 Started 
+  OK    LocalStack up, bucket + table created, tariff service running
+
+[5/9] docker run on the Compose network (marker-style env vars)
+  OK    container ilp-marker-test running, service under test: http://localhost:32768
+
+[6/9] waiting for GET /actuator/health = UP (timeout 90s)
+  OK    service is UP
+
+[7/9] POST /dispatch/manifests (marked request P3)
+  OK    P3: 201 — response matches the spec sample
+
+[8/9] GET /carriers/{carrierId}/shipments (the shipment is indexed, P7)
+  OK    P7: 200 — response matches the spec sample
+
+[9/9] teardown
+
+  OK    container and environment removed (the marker discards them too)
+RESULT: PASSED — ilp_submission_image.tar reproduces the marker's run end to end; finish with the checklist in Appendix H.

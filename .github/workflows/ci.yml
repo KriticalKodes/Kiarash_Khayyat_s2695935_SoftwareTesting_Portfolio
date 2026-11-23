@@ -1,0 +1,41 @@
+name: Software Testing CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build, test and enforce coverage gate
+        working-directory: "CW2 template/template"
+        run: mvn -B verify
+
+      - name: Mutation testing gate
+        working-directory: "CW2 template/template"
+        run: mvn -B test org.pitest:pitest-maven:mutationCoverage
+
+      - name: Publish reports as artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-evidence
+          path: |
+            CW2 template/template/target/surefire-reports
+            CW2 template/template/target/site/jacoco
+            CW2 template/template/target/pit-reports
+
+      - name: Container system dry run
+        working-directory: "CW2 template/template"
+        run: ./dry_run.sh

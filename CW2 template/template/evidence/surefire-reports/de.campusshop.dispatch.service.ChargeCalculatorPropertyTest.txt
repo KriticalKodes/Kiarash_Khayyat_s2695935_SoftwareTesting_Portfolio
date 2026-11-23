@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: de.campusshop.dispatch.service.ChargeCalculatorPropertyTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.278 s -- in de.campusshop.dispatch.service.ChargeCalculatorPropertyTest

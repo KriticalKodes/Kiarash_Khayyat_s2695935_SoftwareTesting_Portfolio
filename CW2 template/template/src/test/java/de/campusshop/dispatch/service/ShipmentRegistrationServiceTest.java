@@ -185,6 +185,21 @@ class ShipmentRegistrationServiceTest {
         verify(archive).remove(keyCaptor.getValue());
     }
 
+    @Test
+    void compensationFailureDoesNotHideTheOriginalIndexFailure() {
+        when(shipments.manifestExists(MANIFEST_NO)).thenReturn(false);
+        when(tariffClient.findTariff(anyString())).thenReturn(Optional.empty());
+        IllegalStateException failure = new IllegalStateException("DynamoDB unavailable");
+        doThrow(failure).when(shipments).put(any());
+        doThrow(new IllegalStateException("S3 cleanup failed")).when(archive).remove(anyString());
+
+        assertThatThrownBy(() -> service.register(
+                manifest(MANIFEST_NO, new ParcelDto("TRF-1", BigDecimal.ONE)), RAW_MANIFEST))
+                .isSameAs(failure);
+
+        verify(archive).remove(anyString());
+    }
+
     private static DispatchManifest manifest(String manifestNo, ParcelDto... parcels) {
         return new DispatchManifest(
                 manifestNo,

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import software.amazon.awssdk.awscore.exception.AwsServiceException;
 import software.amazon.awssdk.core.ResponseBytes;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -15,11 +16,14 @@ import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.GetObjectResponse;
 import software.amazon.awssdk.services.s3.model.NoSuchKeyException;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.model.S3Exception;
 
 import java.nio.charset.StandardCharsets;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -87,6 +91,30 @@ class S3ManifestArchiveTest {
                 .thenThrow(NoSuchKeyException.builder().message("missing").build());
 
         assertThat(archive.fetch(KEY)).isEmpty();
+    }
+
+    @Test
+    void generic404FromS3CompatibleEndpointBecomesEmpty() {
+        when(s3.getObjectAsBytes(any(GetObjectRequest.class)))
+                .thenThrow(S3Exception.builder().statusCode(404).message("NoSuchKey").build());
+
+        assertThat(archive.fetch(KEY)).isEmpty();
+    }
+
+    @Test
+    void non404S3FailureIsPropagated() {
+        AwsServiceException failure = S3Exception.builder().statusCode(500).message("storage down").build();
+        when(s3.getObjectAsBytes(any(GetObjectRequest.class))).thenThrow(failure);
+
+        assertThatThrownBy(() -> archive.fetch(KEY)).isSameAs(failure);
+    }
+
+    @Test
+    void deleteFailureIsPropagatedInsteadOfBeingHidden() {
+        AwsServiceException failure = S3Exception.builder().statusCode(500).message("delete failed").build();
+        doThrow(failure).when(s3).deleteObject(any(DeleteObjectRequest.class));
+
+        assertThatThrownBy(() -> archive.remove(KEY)).isSameAs(failure);
     }
 
     @Test

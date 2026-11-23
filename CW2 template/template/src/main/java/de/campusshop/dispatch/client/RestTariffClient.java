@@ -6,8 +6,10 @@ import de.campusshop.dispatch.model.Tariff;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientException;
 
 import java.util.Optional;
 
@@ -37,17 +39,36 @@ public class RestTariffClient implements TariffClient {
      */
     @Override
     public Optional<Tariff> findTariff(String tariffCode) {
+        long started = System.nanoTime();
         try {
             TariffResponse response = restClient.get()
                     .uri("/tariffs/{tariffCode}", tariffCode)
                     .retrieve()
                     .body(TariffResponse.class);
-            return response == null ? Optional.empty() : Optional.of(mapper.toTariff(response));
-        } catch (RuntimeException ex) {
+            long durationMs = (System.nanoTime() - started) / 1_000_000;
+            if (response == null || !hasRequiredFields(response)) {
+                log.warn("Tariff response rejected for tariffCode={} durationMs={}", tariffCode, durationMs);
+                return Optional.empty();
+            }
+            log.debug("Tariff lookup succeeded tariffCode={} durationMs={}", tariffCode, durationMs);
+            return Optional.of(mapper.toTariff(response));
+        } catch (RestClientException | HttpMessageConversionException ex) {
             // 404, timeout, connection problem or malformed response: an unknown tariff must not
-            // fail the whole registration — the parcel is simply left UNRATED.
-            log.warn("Tariff lookup failed for tariffCode={}: {}", tariffCode, ex.getMessage());
+            // fail the whole registration — the parcel is simply left UNRATED. Programming errors
+            // are no longer swallowed here.
+            long durationMs = (System.nanoTime() - started) / 1_000_000;
+            log.warn("Tariff lookup failed for tariffCode={} durationMs={}: {}",
+                    tariffCode, durationMs, ex.getMessage());
             return Optional.empty();
         }
+    }
+
+    /** Rejects subtractive or malformed schema drift before it can reach the calculator. */
+    private boolean hasRequiredFields(TariffResponse response) {
+        return response.tariffCode() != null && !response.tariffCode().isBlank()
+                && response.serviceName() != null && !response.serviceName().isBlank()
+                && response.baseFee() != null
+                && response.pricePerKg() != null
+                && response.fuelSurchargeRate() != null;
     }
 }

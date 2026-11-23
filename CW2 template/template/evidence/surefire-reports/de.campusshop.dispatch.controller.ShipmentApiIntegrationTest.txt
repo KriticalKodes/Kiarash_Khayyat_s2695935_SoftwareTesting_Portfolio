@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: de.campusshop.dispatch.controller.ShipmentApiIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.53 s -- in de.campusshop.dispatch.controller.ShipmentApiIntegrationTest
